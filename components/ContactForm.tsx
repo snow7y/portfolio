@@ -1,13 +1,11 @@
 // ContactForm.tsx
 import React, {useState} from "react";
-import {useRouter} from "next/navigation";
 import {AnimatedSection} from "./AnimatedSection";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
 
 export const ContactForm: React.FC = () => {
-  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");

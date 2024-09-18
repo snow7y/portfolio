@@ -37,23 +37,25 @@ export const About: React.FC = () => {
           {data_en.data_3}
         </p>
         <Separator className="my-4" />
-        <p className="text-xl text-gray-300">
-          {data_ja.data_1}{" "}
-          <span className="text-blue-400">
-            <a
-              href="https://kyoto-tech.ac.jp/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {data_ja.school}
-            </a>
-          </span>{" "}
-          {data_ja.data_2}
-        </p>
-        <p className="text-xl text-gray-300">
-          <span className="text-blue-400">{data_ja.securityCircle}</span>{" "}
-          {data_ja.data_3}
-        </p>
+        <div className={noteSelifJP.className}>
+          <p className="text-xl text-gray-300">
+            {data_ja.data_1}{" "}
+            <span className="text-blue-400">
+              <a
+                href="https://kyoto-tech.ac.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {data_ja.school}
+              </a>
+            </span>{" "}
+            {data_ja.data_2}
+          </p>
+          <p className="text-xl text-gray-300">
+            <span className="text-blue-400">{data_ja.securityCircle}</span>{" "}
+            {data_ja.data_3}
+          </p>
+        </div>
       </div>
     </AnimatedSection>
   );
