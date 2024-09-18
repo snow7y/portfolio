@@ -3,8 +3,16 @@
 
 import React from "react";
 import {AnimatedSection} from "./AnimatedSection";
+import {Noto_Serif_JP} from "next/font/google";
+import {AboutData} from "@/components/data";
+import {Separator} from "@/components/ui/separator";
+
+const noteSelifJP = Noto_Serif_JP({subsets: ["latin"], weight: ["400"]});
 
 export const About: React.FC = () => {
+  const data_ja = AboutData.ja;
+  const data_en = AboutData.en;
+
   return (
     <AnimatedSection id="about">
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl mb-16 text-center">
@@ -12,21 +20,39 @@ export const About: React.FC = () => {
       </h2>
       <div className="max-w-3xl mx-auto space-y-8">
         <p className="text-xl text-gray-300">
-          I'm a{" "}
+          {data_en.data_1}{" "}
           <span className="text-blue-400">
-            passionate Computer Science student
+            <a
+              href="https://kyoto-tech.ac.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data_en.school}
+            </a>
           </span>{" "}
-          with a keen interest in web development and software engineering.
-          Currently pursuing my degree at XY University, I'm constantly learning
-          and applying new technologies to solve real-world problems.
+          {data_en.data_2}
         </p>
         <p className="text-xl text-gray-300">
-          When I'm not coding, you can find me{" "}
+          <span className="text-blue-400">{data_en.securityCircle}</span>{" "}
+          {data_en.data_3}
+        </p>
+        <Separator className="my-4" />
+        <p className="text-xl text-gray-300">
+          {data_ja.data_1}{" "}
           <span className="text-blue-400">
-            contributing to open-source projects
-          </span>
-          , attending tech meetups, or exploring the latest in AI and machine
-          learning.
+            <a
+              href="https://kyoto-tech.ac.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data_ja.school}
+            </a>
+          </span>{" "}
+          {data_ja.data_2}
+        </p>
+        <p className="text-xl text-gray-300">
+          <span className="text-blue-400">{data_ja.securityCircle}</span>{" "}
+          {data_ja.data_3}
         </p>
       </div>
     </AnimatedSection>

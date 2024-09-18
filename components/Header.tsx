@@ -23,6 +23,12 @@ export const Header: React.FC<HeaderProps> = ({toggleMenu}) => {
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link
               className="transition-colors hover:text-gray-300 text-gray-400"
+              href="#about"
+            >
+              About
+            </Link>
+            <Link
+              className="transition-colors hover:text-gray-300 text-gray-400"
               href="#projects"
             >
               Projects
@@ -32,12 +38,6 @@ export const Header: React.FC<HeaderProps> = ({toggleMenu}) => {
               href="#skills"
             >
               Skills
-            </Link>
-            <Link
-              className="transition-colors hover:text-gray-300 text-gray-400"
-              href="#about"
-            >
-              About
             </Link>
             <Link
               className="transition-colors hover:text-gray-300 text-gray-400"
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({toggleMenu}) => {
             <Github className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
           </Link>
           <Link
-            href="https://twitter.com/snow7y"
+            href="https://twitter.com/snow_7y"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-block"

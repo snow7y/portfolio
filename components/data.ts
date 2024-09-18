@@ -1,4 +1,5 @@
 // data.ts
+
 export interface Project {
   title: string;
   description: string;
@@ -14,6 +15,28 @@ export interface Framework {
   name: string;
   color: string;
 }
+
+
+export const AboutData = {
+  ja: {
+    school: "京都デザイン＆テクノロジー専門学校",
+    securityCircle: "セキュリティサークル",
+    data_1: "私は",
+    data_2:
+      "に通う学生です。\nプログラミングの勉強をしており、特にAIについてのアプリ開発などをしています。\nフロントとバックを幅広く学んでいますが、メインはバックエンドです。",
+    data_3:
+      "に所属しており、その中で生成AIを用いたアプリケーション開発を行っています。",
+  },
+  en: {
+    school: "Kyoto College of Design and Technology",
+    securityCircle: "Security Circle",
+    data_1: "I am a student at",
+    data_2:
+      ". I study programming, especially AI application development. I am learning a wide range of front and back, but my main focus is on the backend.",
+    data_3:
+      "and I am developing applications using generative AI.",
+  },
+};
 
 export const projects: Project[] = [
   {
@@ -60,3 +83,4 @@ export const frameworks: Framework[] = [
   {name: "Flask", color: "#000000"},
   {name: "Ruby on Rails", color: "#CC0000"},
 ];
+

@@ -18,13 +18,13 @@ export const Hero: React.FC = () => {
             snow7y
           </h1>
           <p className="mx-auto max-w-[700px] text-gray-400 text-xl md:text-2xl">
-            Aspiring Software Developer |{" "}
-            <span className="text-blue-400">Computer Science Student</span>
+            Vocational School Student |{" "}
+            <span className="text-blue-400">AI Creator Major</span>
           </p>
         </div>
         <div className="space-x-4">
           <Link href="#contact">
-            <Button size="lg">Get in Touch</Button>
+            <Button size="lg">Contact</Button>
           </Link>
           <Link href="#projects">
             <Button variant="secondary" size="lg">

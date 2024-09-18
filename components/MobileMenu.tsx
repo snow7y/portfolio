@@ -2,7 +2,10 @@
 import React from "react";
 import Link from "next/link";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {X, Github, Twitter} from "lucide-react";
+import { X } from "lucide-react";
+import { default as Zenn } from "@/components/icons/zenn/logo-only.svg";
+import { default as Xlogo } from "@/components/icons/x/logo.svg";
+import {default as Github} from "@/components/icons/github/github-mark.svg";
 
 interface MobileMenuProps {
   isMenuOpen: boolean;
@@ -31,7 +34,37 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             <span className="sr-only">Close Menu</span>
           </button>
         </div>
+        <div className="flex space-x-4 p-4 ">
+          <Link
+            href="https://github.com/snow7y"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </Link>
+          <Link
+            href="https://x.com/snow7y"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Xlogo className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </Link>
+          <Link
+            href="https://zenn.dev/snow7y"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Zenn className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
+          </Link>
+        </div>
         <nav className="flex flex-col space-y-4 p-4">
+          <Link
+            className="text-lg font-medium hover:text-gray-300"
+            href="#about"
+            onClick={toggleMenu}
+          >
+            About
+          </Link>
           <Link
             className="text-lg font-medium hover:text-gray-300"
             href="#projects"
@@ -48,35 +81,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </Link>
           <Link
             className="text-lg font-medium hover:text-gray-300"
-            href="#about"
-            onClick={toggleMenu}
-          >
-            About
-          </Link>
-          <Link
-            className="text-lg font-medium hover:text-gray-300"
             href="#contact"
             onClick={toggleMenu}
           >
             Contact
           </Link>
         </nav>
-        <div className="flex space-x-4 p-4 mt-auto">
-          <Link
-            href="https://github.com/snow7y"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </Link>
-          <Link
-            href="https://twitter.com/snow7y"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Twitter className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </Link>
-        </div>
       </div>
     </div>
   );
