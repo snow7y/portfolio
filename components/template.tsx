@@ -1,59 +1,91 @@
-'use client'
+/* eslint-disable react/no-unescaped-entities */
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, useAnimation, Variants, useInView } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Github, Mail, Menu, X, ChevronLeft, ChevronRight, Twitter } from "lucide-react"
-import Link from "next/link"
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
+import {useState, useEffect, useRef, useCallback} from "react";
+import {motion, useAnimation, Variants, useInView} from "framer-motion";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {Badge} from "@/components/ui/badge";
+import {
+  Github,
+  Mail,
+  Menu,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Twitter,
+} from "lucide-react";
+import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import {PieChart, Pie, Cell, ResponsiveContainer, Tooltip} from "recharts";
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
+  hidden: {opacity: 0, y: 60},
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
       duration: 1.5,
-      ease: "easeOut"
-    } 
-  }
-}
+      ease: "easeOut",
+    },
+  },
+};
 
 const projects = [
-  { title: "E-commerce Platform", description: "A full-stack e-commerce solution built with React and Node.js" },
-  { title: "Weather App", description: "A responsive weather application using OpenWeatherMap API" },
-  { title: "Task Manager", description: "A productivity app built with React and Firebase" },
-  { title: "Portfolio Website", description: "A personal portfolio website showcasing projects and skills" },
-  { title: "Blog Platform", description: "A full-featured blog platform with user authentication and comments" }
-]
+  {
+    title: "E-commerce Platform",
+    description:
+      "A full-stack e-commerce solution built with React and Node.js",
+  },
+  {
+    title: "Weather App",
+    description: "A responsive weather application using OpenWeatherMap API",
+  },
+  {
+    title: "Task Manager",
+    description: "A productivity app built with React and Firebase",
+  },
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio website showcasing projects and skills",
+  },
+  {
+    title: "Blog Platform",
+    description:
+      "A full-featured blog platform with user authentication and comments",
+  },
+];
 
 const languages = [
-  { name: "JavaScript", value: 30, color: "#F7DF1E" },
-  { name: "Python", value: 25, color: "#3776AB" },
-  { name: "Java", value: 20, color: "#007396" },
-  { name: "C++", value: 15, color: "#00599C" },
-  { name: "TypeScript", value: 10, color: "#3178C6" }
-]
+  {name: "JavaScript", value: 30, color: "#F7DF1E"},
+  {name: "Python", value: 25, color: "#3776AB"},
+  {name: "Java", value: 20, color: "#007396"},
+  {name: "C++", value: 15, color: "#00599C"},
+  {name: "TypeScript", value: 10, color: "#3178C6"},
+];
 
 const frameworks = [
-  { name: "React", color: "#61DAFB" },
-  { name: "Node.js", color: "#339933" },
-  { name: "Express", color: "#000000" },
-  { name: "Django", color: "#092E20" },
-  { name: "Flutter", color: "#02569B" },
-  { name: "Vue.js", color: "#4FC08D" },
-  { name: "Angular", color: "#DD0031" },
-  { name: "Spring Boot", color: "#6DB33F" },
-  { name: "Flask", color: "#000000" },
-  { name: "Ruby on Rails", color: "#CC0000" }
-]
+  {name: "React", color: "#61DAFB"},
+  {name: "Node.js", color: "#339933"},
+  {name: "Express", color: "#000000"},
+  {name: "Django", color: "#092E20"},
+  {name: "Flutter", color: "#02569B"},
+  {name: "Vue.js", color: "#4FC08D"},
+  {name: "Angular", color: "#DD0031"},
+  {name: "Spring Boot", color: "#6DB33F"},
+  {name: "Flask", color: "#000000"},
+  {name: "Ruby on Rails", color: "#CC0000"},
+];
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -88,29 +120,32 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({children, id}) => {
 };
 
 export function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const autoplayOptions = {
     delay: 5000,
     rootNode: (emblaRoot: HTMLElement) => emblaRoot.parentElement,
   };
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true, 
-    align: 'center',
-    containScroll: 'trimSnaps',
-    slidesToScroll: 1,
-  }, [Autoplay(autoplayOptions)])
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "center",
+      containScroll: "trimSnaps",
+      slidesToScroll: 1,
+    },
+    [Autoplay(autoplayOptions)]
+  );
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -250,10 +285,7 @@ export function Portfolio() {
         <AnimatedSection id="hero">
           <div className="flex flex-col items-center space-y-8 text-center">
             <Avatar className="w-32 h-32">
-              <AvatarImage
-                src="/icon.png?height=128&width=128"
-                alt="snow7y"
-              />
+              <AvatarImage src="/icon.png?height=128&width=128" alt="snow7y" />
               <AvatarFallback>SY</AvatarFallback>
             </Avatar>
             <div className="space-y-4">
