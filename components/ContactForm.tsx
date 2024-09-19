@@ -4,23 +4,35 @@ import {AnimatedSection} from "./AnimatedSection";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
+import {useRouter} from "next/navigation";
 
 export const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("メール送信開始")
+    console.log("メール送信開始");
+
+    // 送信内容があるか確認
+    if (!name || !email || !message) {
+      console.log("送信内容がありません");
+
+      return;
+    }
 
     await fetch("/api/email", {
       method: "POST",
-
       body: JSON.stringify({name, email, message}),
     }).then((res) => {
       if (res.status === 200) {
         console.log("Success!");
+        setName("");
+        setEmail("");
+        setMessage("");
+        router.push("/");
       }
     });
   };
@@ -52,10 +64,7 @@ export const ContactForm: React.FC = () => {
             className="bg-gray-800 border-gray-700 text-white text-lg p-6"
             rows={6}
           />
-          <Button
-            type="submit"
-            className="w-full text-lg py-6"
-          >
+          <Button type="submit" className="w-full text-lg py-6">
             Send Message
           </Button>
         </form>
