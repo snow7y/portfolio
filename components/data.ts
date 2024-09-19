@@ -3,6 +3,7 @@
 export interface Project {
   title: string;
   description: string;
+  url: string;
 }
 
 export interface Language {
@@ -40,47 +41,64 @@ export const AboutData = {
 
 export const projects: Project[] = [
   {
-    title: "E-commerce Platform",
+    title: "Intel 企業連携プロジェクト",
     description:
-      "A full-stack e-commerce solution built with React and Node.js",
+      "Intel株式会社様との連携プロジェクトにて、製品のプロモーション提案やIntelVinoを用いたAIアプリケーション開発をおこないました。",
+    url: "https://forest.watch.impress.co.jp/docs/special/1598339.html",
   },
   {
-    title: "Weather App",
-    description: "A responsive weather application using OpenWeatherMap API",
+    title: "Microsoft 企業連携プロジェクト",
+    description: "生成AIを用いたアプリケーション開発をおこないました。",
+    url: "https://www.microsoft.com/ja-jp/industry/blog/microsoft-in-business/2024/04/05/case-study-utilization-of-azure-openai-service-by-students/",
   },
   {
-    title: "Task Manager",
-    description: "A productivity app built with React and Firebase",
-  },
-  {
-    title: "Portfolio Website",
-    description: "A personal portfolio website showcasing projects and skills",
-  },
-  {
-    title: "Blog Platform",
+    title: "ポノス 企業連携プロジェクト",
     description:
-      "A full-featured blog platform with user authentication and comments",
+      "ポノス株式会社様との連携プロジェクトにて、にゃんこ大戦争の新規ユーザー獲得を目的としたプロモーション提案をおこないました。",
+    url: "https://www.ponos.jp/",
+  },
+  {
+    title: "セキュリティサークル",
+    description:
+      "セキュリティサークルに所属し、生成AIを用いた学内用アプリの開発を行いました。",
+    url: "https://github.com/KTC-Security-Circle",
   },
 ];
 
 export const languages: Language[] = [
-  {name: "JavaScript", value: 30, color: "#F7DF1E"},
-  {name: "Python", value: 25, color: "#3776AB"},
-  {name: "Java", value: 20, color: "#007396"},
-  {name: "C++", value: 15, color: "#00599C"},
-  {name: "TypeScript", value: 10, color: "#3178C6"},
+  {name: "Python", value: 35, color: "#3776AB"},
+  {name: "html/css", value: 25, color: "#F7DF1E"},
+  {name: "C#", value: 15, color: "#00599C"},
+  {name: "Java", value: 10, color: "#007396"},
+  { name: "JS/TS", value: 10, color: "#3178C6" },
+  {name: "others", value: 5, color: "#333333"},
 ];
 
 export const frameworks: Framework[] = [
-  {name: "React", color: "#61DAFB"},
-  {name: "Node.js", color: "#339933"},
-  {name: "Express", color: "#000000"},
+  // できるだけ色は被らないように
+  // python
+  {name: "FastAPI", color: "#009688"},
   {name: "Django", color: "#092E20"},
-  {name: "Flutter", color: "#02569B"},
+  {name: "LangChain", color: "#339933"},
+
+  // html/css
+  {name: "Bootstrap", color: "#7952B3"},
+  {name: "usebootstrap", color: "#38B2AC"},
+
+  // JS/TS
+  {name: "React", color: "#61DAFB"},
+  {name: "Next.js", color: "#000000"},
   {name: "Vue.js", color: "#4FC08D"},
-  {name: "Angular", color: "#DD0031"},
-  {name: "Spring Boot", color: "#6DB33F"},
-  {name: "Flask", color: "#000000"},
-  {name: "Ruby on Rails", color: "#CC0000"},
+  {name: "Nuxt.js", color: "#00C58E"},
+
+  // C#
+  {name: ".NET", color: "#512BD4"},
+  { name: "Unity", color: "#CC0000" },
+  
+  // others
+  { name: "MySQL", color: "#02569B" },
+  { name: "Azure", color: "#FFCA28" },
+  { name: "Git", color: "#F05032" },
+  { name: "Docker", color: "#2496ED" },
 ];
 

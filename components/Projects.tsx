@@ -11,11 +11,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {ChevronLeft, ChevronRight} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 interface Project {
   title: string;
   description: string;
+  url: string;
 }
 
 interface ProjectsProps {
@@ -61,9 +63,11 @@ export const Projects: React.FC<ProjectsProps> = ({projects}) => {
               >
                 <Card className="w-full bg-gray-800 border-gray-700 h-full">
                   <CardHeader>
+                    <Link href={project.url}>                    
                     <CardTitle className="text-2xl text-blue-400">
                       {project.title}
                     </CardTitle>
+                    </Link>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="text-gray-400 text-lg">

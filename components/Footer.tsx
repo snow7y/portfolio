@@ -1,7 +1,7 @@
 // Footer.tsx
 import React from "react";
 import Link from "next/link";
-import {Github, Twitter, Mail} from "lucide-react";
+import {Github, Twitter} from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
@@ -19,14 +19,11 @@ export const Footer: React.FC = () => {
             <Github className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </Link>
           <Link
-            href="https://twitter.com/snow7y"
+            href="https://twitter.com/snow_7y"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Twitter className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
-          </Link>
-          <Link href="mailto:snow7y@example.com">
-            <Mail className="h-6 w-6 text-gray-400 hover:text-white transition-colors" />
           </Link>
         </div>
       </div>
